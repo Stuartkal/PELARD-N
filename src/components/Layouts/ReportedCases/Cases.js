@@ -21,16 +21,6 @@ class Cases extends Component {
 		getAllReportedCases(() => console.log(this.props));
 	}
 
-	// allViolations = async () => {
-	// 	const { getAllReportedCases } = this.props;
-	// 	getAllReportedCases((response) => {
-	// 		// console.log('violations', response, this.props);
-	// 		// if (response.statusCode === 200 && response.data) return this.history.push('/overview');
-	// 		// return alert('Please enter correct details');
-	// 		return this.setState(<CaseDetails data={response} />);
-	// 	});
-	// };
-
 	toggleModal = (data) => {
 		const { toggleModal } = this.props;
 		this.setState({ toggleModal });
