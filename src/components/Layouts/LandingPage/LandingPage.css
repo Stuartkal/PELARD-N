@@ -1,0 +1,186 @@
+@import url("https://fonts.googleapis.com/css2?family=Changa+One&family=Titan+One&display=swap");
+.login-main {
+  margin: 100px auto;
+  width: 35%;
+  background-color: white;
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.095);
+          box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.095);
+}
+
+.login-main h1 {
+  font-family: 'Changa One', cursive;
+  font-size: 70px;
+  color: #003399;
+  margin-bottom: 2rem;
+}
+
+.login-main h2 {
+  color: rgba(0, 0, 0, 0.7);
+  font-weight: 600;
+  font-size: 30px;
+}
+
+.login-main button {
+  width: 200px;
+  height: 50px;
+  border: none;
+  color: white;
+  background-color: #003399;
+  font-size: 18px;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+}
+
+.login-main button:hover {
+  cursor: pointer;
+  color: #ffcb02;
+}
+
+.login-main:hover {
+  -webkit-box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.9);
+          box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.9);
+  width: 36%;
+}
+
+.signUp-main {
+  margin: auto;
+  width: 35%;
+  background-color: white;
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-transform: translatey(-90%);
+          transform: translatey(-90%);
+  z-index: 1;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.095);
+          box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.095);
+  visibility: hidden;
+}
+
+.signUp-main h1 {
+  font-family: 'Changa One', cursive;
+  font-size: 70px;
+  color: #003399;
+  margin-bottom: 2rem;
+}
+
+.signUp-main h2 {
+  color: rgba(0, 0, 0, 0.7);
+  font-weight: 600;
+  font-size: 30px;
+}
+
+.signUp-main button {
+  width: 200px;
+  height: 50px;
+  border: none;
+  color: white;
+  background-color: #003399;
+  font-size: 18px;
+  margin-bottom: 0.5rem;
+  border-radius: 5px;
+}
+
+.signUp-main button:hover {
+  cursor: pointer;
+  color: #ffcb02;
+}
+
+.signUp-main:hover {
+  -webkit-box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.9);
+          box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.9);
+  width: 36%;
+}
+
+.success-label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.success-label p {
+  color: #ffcb02;
+}
+
+.success-label a {
+  text-decoration: none;
+  color: #003399;
+  margin-left: 1rem;
+}
+
+.show-signUp-main {
+  visibility: visible;
+}
+
+.hide-login-main {
+  visibility: hidden;
+}
+
+.input-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 1rem;
+}
+
+.input-form input {
+  width: 25%px;
+  height: 50px;
+  padding-left: 10px;
+  font-size: 20px;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.login-links {
+  margin-bottom: 1rem;
+}
+
+.login-links a {
+  text-decoration: none;
+  color: #003399;
+}
+
+.signup-btn button {
+  background-color: white;
+  color: #003399;
+}
+/*# sourceMappingURL=LandingPage.css.map */

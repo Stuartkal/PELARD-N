@@ -27,7 +27,10 @@ function* watchUserLogin() {
 function* loginUser({ userName, password, callback }) {
 	try {
 		const response = yield call(() => AdminRequest.userLogin(userName, password));
-		yield put(ActionCreators.userLoginSuccess(response));
+		if (response.token) {
+			yield localStorage.setItem('adminToken', response.token);
+			yield put(ActionCreators.userLoginSuccess(response));
+		}
 		callback(response);
 	} catch (error) {
 		yield put(ActionCreators.userLoginFail(error));

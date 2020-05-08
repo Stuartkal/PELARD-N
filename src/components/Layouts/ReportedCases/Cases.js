@@ -43,6 +43,7 @@ import Sidebar from '../../Routes/SideBar/Sidebar';
 import CaseDetails from './CaseDetails';
 import { connect } from 'react-redux';
 import { ActionCreators } from '../../../Store/ActionCreators';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 import './Cases.scss';
 class Cases extends Component {
@@ -81,26 +82,15 @@ class Cases extends Component {
 	};
 
 	render() {
-		const cases = [
-			{
-				reporter: 'Kalema stuart',
-				phone: '0794567354',
-				date: '28.04.2020'
-			},
-			{
-				reporter: 'Kalema stuart',
-				phone: '0794567354',
-				date: '28.04.2020'
-			},
-			{
-				reporter: 'Kalema stuart',
-				phone: '0794567354',
-				date: '28.04.2020'
-			}
-		];
-		const { allCases } = this.props;
+		const { allCases, loading } = this.props;
 		const { modalComp } = this.state;
-		const caseHeader = [ { label: 'Reporter Name' }, { label: 'Phone Number' }, { label: 'Date' } ];
+		const caseHeader = [
+			{ label: 'Reporter Name' },
+			{ label: 'District' },
+			{ label: 'Violations' },
+			{ label: 'Phone Number' },
+			{ label: 'Date' }
+		];
 		return (
 			<div>
 				{modalComp}
@@ -108,11 +98,11 @@ class Cases extends Component {
 				<div className="cases-main">
 					<div className="search-container">
 						<i className="material-icons">search</i>
-						<input placeholder="Search Name,Phonenumber,Violations,Districts" />
+						<input placeholder="Search Violations" />
 					</div>
+					{loading && <CircularProgress />}
 					<CaseTable
 						caseHeaders={caseHeader}
-						cases={cases}
 						data={allCases}
 						toggleModal={(row) => this.toggleModal(row)}
 					/>
@@ -123,6 +113,7 @@ class Cases extends Component {
 }
 
 const mapStateToProps = (state) => ({
+	loading: state.adminReducer.loading,
 	allCases: state.adminReducer.allCases
 });
 

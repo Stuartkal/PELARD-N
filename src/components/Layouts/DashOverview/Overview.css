@@ -1,0 +1,137 @@
+:root {
+  --primaryColor1: #003399;
+  --primaryColor2: #ffcb02;
+  --mainWhite: #fff;
+  --mainGrey: rgba(0, 0, 0, 0.5);
+  --mainTransition: all 0.3s linear;
+  --mainSpacing: 0.1rem;
+  --mainBgGrey: #f7f7f7;
+  --mainFont: 'Lato', sans-serif;
+}
+
+.overview-main {
+  position: absolute;
+  top: 0;
+  width: 75%;
+  height: 100vh;
+  margin: auto 19rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.chart-main {
+  width: 100%;
+  margin: 40px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.chart-main h2 {
+  font-weight: 400;
+  font-family: var(--mainFont);
+}
+
+.chart-container {
+  width: 85%;
+  padding: 20px;
+  background-color: var(--mainWhite);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.095);
+          box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.095);
+}
+
+.chart-container h3 {
+  color: var(--mainGrey);
+  font-weight: 500;
+  font-family: var(--mainFont);
+}
+
+.chart-main-row {
+  width: 95%;
+  margin-top: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+}
+
+.chart-main-row h2 {
+  font-weight: 200;
+  color: var(--mainGrey);
+}
+
+.row {
+  width: 85%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  margin-top: 1rem;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 200px;
+  height: 150px;
+  border-radius: 5px;
+  background-color: var(--mainWhite);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.095);
+          box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.095);
+  padding: 10px;
+  margin-bottom: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.card h2 {
+  font-weight: 400;
+  margin-top: 0.4rem;
+  color: var(--primaryColor2);
+}
+
+.card h3 {
+  font-weight: 400;
+  color: var(--mainGrey);
+}
+/*# sourceMappingURL=Overview.css.map */

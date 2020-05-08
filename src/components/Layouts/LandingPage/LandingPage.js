@@ -9,15 +9,13 @@ class LandingPage extends Component {
 		super(props);
 	}
 	state = {
-		firstName: 'Kizza',
-		lastName: 'Thierry',
-		userName: 'Payne',
+		firstName: 'Test',
+		lastName: 'App',
+		userName: 'kanye',
 		password: 'pass0123',
-		phoneNumber: '798756473',
-		email: 'payne@gmail.com',
-		token: '',
-		openModal: false,
-		closeModal: false
+		phoneNumber: '798756479',
+		email: 'test101@gmail.com',
+		token: ''
 	};
 
 	componentDidMount() {
@@ -30,9 +28,14 @@ class LandingPage extends Component {
 		const { userLogin } = this.props;
 		const { userName, password } = this.state;
 		userLogin(userName, password, (response) => {
-			console.log('response log signin', response, this.props);
-			if (response.statusCode === 200 && response.data) return this.history.push('/overview');
-			return alert('Please enter correct details');
+			if (response.statusCode === 200 || (201 && response.data)) {
+				console.log('response log signin', response, this.props);
+				window.location = '/overview';
+			} else return alert('User Not Registered');
+			// if (response.token && response.statusCode === 200 && response.data) {
+			// 	// console.log('we are in here.. can we see');
+			// 	return this.history.push('/overview');
+			// } else return;
 		});
 	};
 
@@ -44,23 +47,25 @@ class LandingPage extends Component {
 
 	render() {
 		const state = this.state;
+		const { loading } = this.props;
 		return (
 			<div>
-				<SignIn
-					loginHandler={this.loginHandler}
+				<SignIn loginHandler={this.loginHandler} onchange={this.handleChange} state={state} loading={loading} />
+
+				<SignUp
+					registerHandler={this.registerHandler}
 					onchange={this.handleChange}
 					state={state}
-					close={() => !state.closeModal}
+					loading={loading}
 				/>
-
-				<SignUp registerHandler={this.registerHandler} onchange={this.handleChange} state={state} />
 			</div>
 		);
 	}
 }
 
 const mapStateToProps = (state) => ({
-	// loading: state.adminReducer.loading,
+	loading: state.adminReducer.loading
+	// authenticated: state.adminReducer.token,
 	// token: state.adminReducer.token
 });
 
