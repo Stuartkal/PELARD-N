@@ -1,0 +1,42 @@
+import React, { Component } from 'react';
+import { Bar } from 'react-chartjs-2';
+
+const state = {
+	labels: [ 'JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEPT', 'OCT', 'NOV', 'DEC' ],
+	datasets: [
+		{
+			label: 'Case',
+			backgroundColor: '#003399',
+			borderColor: 'rgba(0,0,0,1)',
+			borderWidth: 1,
+			data: [ 65, 59, 80, 81, 56, 65, 59, 80, 81, 56, 70, 67 ]
+		}
+	]
+};
+
+class Casechart extends Component {
+	render() {
+		return (
+			<div>
+				<Bar
+					width={100}
+					height={300}
+					data={state}
+					options={{
+						maintainAspectRatio: false
+						// title: {
+						// 	display: true,
+
+						// 	fontSize: 20
+						// },
+						// legend: {
+						// 	display: true
+						// }
+					}}
+				/>
+			</div>
+		);
+	}
+}
+
+export default Casechart;
