@@ -1,42 +1,3 @@
-// import React from 'react';
-// import CaseTable from './CaseTable';
-// import Sidebar from '../../Routes/SideBar/Sidebar';
-// import './Cases.scss';
-// const Cases = () => {
-// 	const cases = [
-// 		{
-// 			reporter: 'Kalema stuart',
-// 			phone: '0794567354',
-// 			date: '28.04.2020'
-// 		},
-// 		{
-// 			reporter: 'Kalema stuart',
-// 			phone: '0794567354',
-// 			date: '28.04.2020'
-// 		},
-// 		{
-// 			reporter: 'Kalema stuart',
-// 			phone: '0794567354',
-// 			date: '28.04.2020'
-// 		}
-// 	];
-// 	const caseHeader = [ { label: 'Reporter Name' }, { label: 'Phone Number' }, { label: 'Date' } ];
-// 	return (
-// 		<div>
-// 			<Sidebar />
-// 			<div className="cases-main">
-// 				<div className="search-container">
-// 					<i className="material-icons">search</i>
-// 					<input placeholder="Search Name,Phonenumber,Violations,Districts" />
-// 				</div>
-// 				<CaseTable caseHeaders={caseHeader} cases={cases} />
-// 			</div>
-// 		</div>
-// 	);
-// };
-
-// export default Cases;
-
 import React, { Component } from 'react';
 import CaseTable from './CaseTable';
 import Sidebar from '../../Routes/SideBar/Sidebar';
@@ -101,11 +62,7 @@ class Cases extends Component {
 						<input placeholder="Search Violations" />
 					</div>
 					{loading && <CircularProgress />}
-					<CaseTable
-						caseHeaders={caseHeader}
-						data={allCases}
-						toggleModal={(row) => this.toggleModal(row)}
-					/>
+					<CaseTable caseHeaders={caseHeader} data={allCases} toggleModal={(row) => this.toggleModal(row)} />
 				</div>
 			</div>
 		);
