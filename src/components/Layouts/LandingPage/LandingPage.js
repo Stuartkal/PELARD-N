@@ -9,12 +9,12 @@ class LandingPage extends Component {
 		super(props);
 	}
 	state = {
-		firstName: 'Test',
-		lastName: 'App',
+		firstName: '',
+		lastName: '',
 		userName: 'kanye',
 		password: 'pass0123',
-		phoneNumber: '798756479',
-		email: 'test101@gmail.com',
+		phoneNumber: '',
+		email: '',
 		token: ''
 	};
 
@@ -28,13 +28,13 @@ class LandingPage extends Component {
 		const { userLogin } = this.props;
 		const { userName, password } = this.state;
 		userLogin(userName, password, (response) => {
-			if (response.statusCode === 200 || (201 && response.data)) {
+			if ((response.token && response.statusCode === 200) || (201 && response.data)) {
 				console.log('response log signin', response, this.props);
-				window.location = '/overview';
+				return this.props.history.push('/overview');
 			} else return alert('User Not Registered');
-			// if (response.token && response.statusCode === 200 && response.data) {
+			// if (response.token) {
 			// 	// console.log('we are in here.. can we see');
-			// 	return this.history.push('/overview');
+			// 	return this.props.history.push('/overview');
 			// } else return;
 		});
 	};
@@ -46,16 +46,21 @@ class LandingPage extends Component {
 	};
 
 	render() {
-		const state = this.state;
 		const { loading } = this.props;
+
 		return (
 			<div>
-				<SignIn loginHandler={this.loginHandler} onchange={this.handleChange} state={state} loading={loading} />
+				<SignIn
+					loginHandler={this.loginHandler}
+					onChange={(key, value) => this.handleChange(key, value)}
+					{...this.state}
+					loading={loading}
+				/>
 
 				<SignUp
 					registerHandler={this.registerHandler}
-					onchange={this.handleChange}
-					state={state}
+					onChange={(key, value) => this.handleChange(key, value)}
+					{...this.state}
 					loading={loading}
 				/>
 			</div>

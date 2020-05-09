@@ -5,6 +5,7 @@ import CaseDetails from './CaseDetails';
 import { connect } from 'react-redux';
 import { ActionCreators } from '../../../Store/ActionCreators';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import { Redirect, withRouter } from 'react-router-dom';
 
 import './Cases.scss';
 class Cases extends Component {
@@ -12,31 +13,20 @@ class Cases extends Component {
 		super(props);
 	}
 
-	state = {
-		CaseDetails: null
-	};
-
 	async componentDidMount() {
 		const { getAllReportedCases } = this.props;
 		getAllReportedCases(() => console.log(this.props));
 	}
 
 	toggleModal = (data) => {
-		const { toggleModal } = this.props;
-		this.setState({ toggleModal });
-		toggleModal();
-		this.componentModal(data);
-	};
-
-	componentModal = (data) => {
-		return this.setState({ modalComp: <CaseDetails data={data} /> });
+		// return <Redirect to="/case-details" />;
+		return this.props.history.push('/case-details', { data });
 	};
 
 	render() {
 		const { allCases, loading } = this.props;
-		const { modalComp } = this.state;
 		const caseHeader = [
-			{ label: 'Reporter Name' },
+			{ label: 'Reporter ' },
 			{ label: 'District' },
 			{ label: 'Violations' },
 			{ label: 'Phone Number' },
@@ -44,7 +34,6 @@ class Cases extends Component {
 		];
 		return (
 			<div>
-				{modalComp}
 				<Sidebar />
 				<div className="cases-main">
 					<div className="search-container">
@@ -69,4 +58,4 @@ const mapDispatchToProps = (dispatch) => ({
 	toggleModal: () => dispatch(ActionCreators.toggleModalAction())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Cases);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Cases));

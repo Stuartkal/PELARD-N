@@ -17,14 +17,14 @@ const Signin = (props) => {
 					<input
 						type="text"
 						placeholder="userName"
-						value={props.state.userName}
-						onChange={(e) => props.handleChange('userName', e)}
+						value={props.userName}
+						onChange={(e) => props.onChange('userName', e)}
 					/>
 					<input
 						type="password"
 						placeholder="Password"
-						value={props.state.password}
-						onChange={(e) => props.handleChange('password', e)}
+						value={props.password}
+						onChange={(e) => props.onChange('password', e)}
 					/>
 				</div>
 				<div className="login-links">

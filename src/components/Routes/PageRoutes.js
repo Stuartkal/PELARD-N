@@ -4,12 +4,18 @@ import CaseDetails from '../Layouts/ReportedCases/CaseDetails';
 import LandingPage from '../Layouts/LandingPage/LandingPage';
 import SignIn from '../Layouts/LandingPage/Signin';
 import SignUp from '../Layouts/LandingPage/SignUp';
+import Sidebar from './SideBar/Sidebar';
 
 export default [
 	{
 		path: '/',
 		component: LandingPage,
 		exact: true
+	},
+	{
+		path: '/sidebar',
+		component: Sidebar,
+		exact: false
 	},
 	{
 		path: '/signin',

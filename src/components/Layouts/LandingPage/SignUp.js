@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 import './LandingPage.scss';
@@ -12,38 +12,38 @@ const SignUp = (props) => {
 					<input
 						type="text"
 						placeholder="FirstName"
-						value={props.state.firstName}
-						onChange={(e) => props.handleChange('lasttName', e)}
+						value={props.firstName}
+						onChange={(e) => props.onChange('firstName', e)}
 					/>
 					<input
 						type="text"
 						placeholder="LastName"
-						value={props.state.lastName}
-						onChange={(e) => props.handleChange('lasttName', e)}
+						value={props.lastName}
+						onChange={(e) => props.onChange('lastName', e)}
 					/>
 					<input
 						type="text"
 						placeholder="UserName"
-						value={props.state.userName}
-						onChange={(e) => props.handleChange('userName', e)}
+						value={props.userName}
+						onChange={(e) => props.onChange('userName', e)}
 					/>
 					<input
 						type="email"
 						placeholder="Email"
-						value={props.state.email}
-						onChange={(e) => props.handleChange('email', e)}
+						value={props.email}
+						onChange={(e) => props.onChange('email', e)}
 					/>
 					<input
 						type="password"
 						placeholder="Password"
-						value={props.state.password}
-						onChange={(e) => props.handleChange('password', e)}
+						value={props.password}
+						onChange={(e) => props.onChange('password', e)}
 					/>
 					<input
 						type="text"
 						placeholder="PhoneNumber"
-						value={props.state.phoneNumber}
-						onChange={(e) => props.handleChange('phoneNumber', e)}
+						value={props.phoneNumber}
+						onChange={(e) => props.onChange('phoneNumber', e)}
 					/>
 				</div>
 				<div className="login-links">

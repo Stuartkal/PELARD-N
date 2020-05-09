@@ -81,7 +81,7 @@
 .table-header-row {
 	height: 30px;
 	align-items: center;
-
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 	td {
 		font-weight: 400;
 		color: var(--mainGrey);
@@ -89,10 +89,9 @@
 }
 
 .table-detail-row {
-	height: 50px;
+	height: 30px;
 	align-items: center;
-	margin-bottom: 1rem;
-	border-top: 1px solid rgba(0, 0, 0, 0.1);
+	margin-bottom: 0.2rem;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 	&:hover {
 		background-color: rgba(0, 0, 0, 0.1);

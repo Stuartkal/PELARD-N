@@ -1,7 +1,7 @@
 import { AdminActions } from '../Actions';
 
 const initialState = {
-	userId: '',
+	userProfile: {},
 	token: '',
 	loading: false,
 	allCases: [],
@@ -24,7 +24,7 @@ export default function(state = initialState, { type, payload, error }) {
 
 		//UESR LOGIN
 		case AdminActions.USER_LOGIN_ACTION:
-			return { ...state, loading: true, token: '' };
+			return { ...state, loading: true };
 		case AdminActions.USER_LOGIN_SUCCESS:
 			return { ...state, loading: true, token: payload.token };
 		case AdminActions.USER_LOGIN_FAIL:

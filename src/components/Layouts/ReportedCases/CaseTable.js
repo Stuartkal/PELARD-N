@@ -1,10 +1,10 @@
 import React from 'react';
 
-const handleClick = () => {
-	window.location = '/case-details';
-};
+import './Cases.scss';
 
 const CaseTable = ({ caseHeaders, data, toggleModal }) => {
+	// let date = new Date(dateTime).toDateString();
+	const convertDate = (date) => new Date(date).toDateString();
 	return (
 		<div className="table-container">
 			<table>
@@ -13,12 +13,12 @@ const CaseTable = ({ caseHeaders, data, toggleModal }) => {
 					{data.map((row) => {
 						// console.log(row);
 						return (
-							<tr className="table-detail-row" onClick={handleClick}>
+							<tr className="table-detail-row" onClick={() => toggleModal(data)}>
 								<td>{row.reporter.name}</td>
 								<td>{row.location.name}</td>
 								<td>{row.type}</td>
 								<td>{row.reporter.contact}</td>
-								<td>{row.dateTime}</td>
+								<td>{convertDate(row.reportedDateAndTime)}</td>
 							</tr>
 						);
 					})}
