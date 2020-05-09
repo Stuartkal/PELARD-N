@@ -33,7 +33,7 @@ export default [
 		exact: true
 	},
 	{
-		path: '/cases',
+		path: '/overview/cases',
 		component: Cases,
 		exact: false
 	},

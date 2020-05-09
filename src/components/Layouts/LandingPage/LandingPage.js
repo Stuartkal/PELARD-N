@@ -11,8 +11,8 @@ class LandingPage extends Component {
 	state = {
 		firstName: '',
 		lastName: '',
-		userName: 'kanye',
-		password: 'pass0123',
+		userName: '',
+		password: '',
 		phoneNumber: '',
 		email: '',
 		token: ''

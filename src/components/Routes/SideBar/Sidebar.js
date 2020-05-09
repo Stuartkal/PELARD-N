@@ -40,6 +40,9 @@ class Sidebar extends Component {
 	// 	localStorage.removeItem('adminToken');
 	// 	return this.props.history.push('/');
 	// };
+	redirectToCases = () => {
+		return this.props.history.push('/overview/cases');
+	};
 
 	render() {
 		return (
@@ -53,7 +56,7 @@ class Sidebar extends Component {
 					<h3>Johndoe@gmail.com</h3>
 					<div className="dash-links">
 						<Dashlink1 />
-						<Dashlink2 />
+						<Dashlink2 redirect={this.redirectToCases} />
 					</div>
 					<button type="submit" onClick={() => alert('In the making')}>
 						Logout
