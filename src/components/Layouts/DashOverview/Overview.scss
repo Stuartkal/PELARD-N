@@ -20,6 +20,35 @@
 	// justify-content: center;
 	// background-color: var(--mainBgGrey);
 }
+.humburger_menu {
+	position: sticky;
+	top: 0;
+	left: 150px;
+	height: 50px;
+	width: 50px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--primaryColor1);
+	border-radius: 100px;
+	transition: all 0.3s linear;
+	box-sizing: border-box;
+	box-shadow: 0px 5px 10px rgba(0, 0, 0, .095);
+	visibility: hidden;
+
+	i {
+		color: var(--mainWhite);
+	}
+
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+// .humburger_menu_click {
+// 	background-color: red;
+// }
 
 .chart-main {
 	width: 100%;
@@ -95,5 +124,107 @@
 	h3 {
 		font-weight: 400;
 		color: var(--mainGrey);
+	}
+}
+
+// .humburger_menu-push {
+// 	transform: translateX(400%);
+// }
+
+.sidebar-main {
+	background-color: var(--mainWhite);
+	height: 100vh;
+	width: 20vw;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: fixed;
+	transform: all 0.3s linear;
+	top: 0;
+	z-index: 1;
+	box-sizing: border-box;
+	box-shadow: 0px 5px 10px rgba(0, 0, 0, .095);
+
+	h1 {
+		font-weight: 600;
+		color: var(--primaryColor1);
+		margin-top: 2rem;
+		font-family: var(--mainFont);
+	}
+	h2 {
+		color: var(--primaryColor1);
+		margin-top: 20px;
+		font-weight: 500;
+		font-family: var(--mainFont);
+	}
+	h3 {
+		color: var(--primaryColor1);
+		font-weight: 300;
+		font-family: var(--mainFont);
+	}
+	button {
+		transform: translateY(100%);
+		width: 100px;
+		height: 30px;
+		border: 0px;
+		color: var(--mainWhite);
+		background-color: var(--primaryColor1);
+		font-size: 15px;
+		&:hover {
+			background-color: var(--mainGrey);
+			cursor: pointer;
+		}
+	}
+}
+
+.sidebar-main-slide {
+	transform: translateX(0);
+}
+
+@media screen and (max-width: 768px) {
+	.overview-main {
+		margin: auto 3rem;
+	}
+
+	.chart-main-row {
+		h2 {
+			font-size: 15px;
+		}
+	}
+
+	.humburger_menu {
+		visibility: visible;
+	}
+
+	.sidebar-main-slide {
+		transform: translateX(0);
+		width: 50vw;
+
+		h1 {
+			font-size: 20px;
+			margin-top: 1rem;
+		}
+		h2 {
+			font-size: 18px;
+			margin-top: 1rem;
+		}
+		h3 {
+			font-size: 15px;
+		}
+		button {
+			position: relative;
+			top: 10px;
+			width: 80px;
+			height: 30px;
+			border: 0px;
+			color: var(--mainWhite);
+			background-color: var(--primaryColor1);
+			font-size: 15px;
+
+			&:hover {
+				background-color: var(--mainGrey);
+				cursor: pointer;
+			}
+		}
 	}
 }

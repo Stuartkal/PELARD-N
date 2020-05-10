@@ -1,21 +1,34 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Sidebar from '../../Routes/SideBar/Sidebar';
 import './CaseDetails.scss';
 const CaseDetails = (props) => {
 	// console.log('violations', props);
+	const [ caseDetails, setcaseDetails ] = useState({});
 
 	useEffect(() => {
-		const test = props.location.state.data;
-		console.log('violations', test);
-	});
+		const { data } = props.location.state;
+		setcaseDetails(data);
+	}, []);
+	console.log('CaseDetails violations', caseDetails.reporter);
 
-	const data = props.location.state.data;
+	// const data = props.location.state.data;
 	const convertDate = (date) => new Date(date).toDateString();
+
+	const humburgerHandler = () => {
+		const profileDOM = document.querySelector('.sidebar-main');
+		profileDOM.classList.add('sidebar-main-slide');
+	};
+
 	return (
 		<div>
 			<Sidebar />
 
 			<div className="case-details-main">
+				<div className="humburger_menu">
+					<i className="material-icons" onClick={humburgerHandler}>
+						dehaze
+					</i>
+				</div>
 				<div className="case-header">
 					<h2>Case Details</h2>
 					<div className="case-icons">
@@ -43,56 +56,46 @@ const CaseDetails = (props) => {
 								<h3>Reporter's Name: </h3>
 							</div>
 							<div className="detail">
-								<h4>{data[0].reporter.name}</h4>
+								<h4>{caseDetails && caseDetails.type}</h4>
 							</div>
 						</div>
 						<div className="case-details-row">
 							<div className="label">
 								<h3>Phone Number: </h3>
 							</div>
-							<div className="detail">
-								<h4>{data[0].reporter.contact}</h4>
-							</div>
+							<div className="detail">{/* <h4>{caseDetails && caseDetails.reporter.contact}</h4> */}</div>
 						</div>
 						<div className="case-details-row">
 							<div className="label">
 								<h3>Type of Violation: </h3>
 							</div>
-							<div className="detail">
-								<h4>{data[0].type}</h4>
-							</div>
+							<div className="detail">{/* <h4>{caseDetails && caseDetails.type}</h4> */}</div>
 						</div>
 						<div className="case-details-row">
 							<div className="label">
 								<h3>Location of Violation: </h3>
 							</div>
-							<div className="detail">
-								<h4>{data[0].location.name}</h4>
-							</div>
+							<div className="detail">{/* <h4>{caseDetails && caseDetails.location.name}</h4> */}</div>
 						</div>
 						<div className="case-details-row">
 							<div className="label">
 								<h3>Violance Description: </h3>
 							</div>
 							<div className="detail">
-								<h4>{data[0].description}</h4>
+								<h4>{caseDetails && caseDetails.description}</h4>
 							</div>
 						</div>
 						<div className="case-details-row">
 							<div className="label">
 								<h3>Persons Involved: </h3>
 							</div>
-							<div className="detail">
-								<h4>{data[0].involved[0].name}</h4>
-							</div>
+							<div className="detail">{/* <h4>{caseDetails && caseDetails.involved.name}</h4> */}</div>
 						</div>
 						<div className="case-details-row">
 							<div className="label">
 								<h3>Witnesses: </h3>
 							</div>
-							<div className="detail">
-								<h4>{data[0].involved[1].name}</h4>
-							</div>
+							<div className="detail">{/* <h4>{caseDetails && caseDetails.involved.name}</h4> */}</div>
 						</div>
 						<div className="case-details-row">
 							<div className="label">
@@ -100,7 +103,7 @@ const CaseDetails = (props) => {
 							</div>
 							<div className="detail">
 								<h4>
-									{data[0].authorityResponse[0].name} ; "{data[0].authorityResponse[0].response}"
+									{/* {caseDetails && caseDetails.authorityResponse.name} ; "{caseDetails && caseDetails.authorityResponse.response}" */}
 								</h4>
 							</div>
 						</div>
@@ -109,7 +112,7 @@ const CaseDetails = (props) => {
 								<h3>Other Information: </h3>
 							</div>
 							<div className="detail">
-								<h4>{data[0].otherInfo[0].description}</h4>
+								{/* <h4>{caseDetails && caseDetails.otherInfo.description}</h4> */}
 							</div>
 						</div>
 						<div className="case-details-row">
@@ -138,7 +141,7 @@ const CaseDetails = (props) => {
 						</div>
 					</div>
 					<div className="case-date">
-						<h3>{convertDate(data[0].reportedDateAndTime)}</h3>
+						<h3>{convertDate(caseDetails && caseDetails.dateTime)}</h3>
 					</div>
 				</div>
 			</div>

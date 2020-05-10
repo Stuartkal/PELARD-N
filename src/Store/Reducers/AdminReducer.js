@@ -26,7 +26,8 @@ export default function(state = initialState, { type, payload, error }) {
 		case AdminActions.USER_LOGIN_ACTION:
 			return { ...state, loading: true };
 		case AdminActions.USER_LOGIN_SUCCESS:
-			return { ...state, loading: true, token: payload.token };
+			localStorage.setItem('adminToken', payload.data.token);
+			return { ...state, loading: true, token: payload.data.token };
 		case AdminActions.USER_LOGIN_FAIL:
 			return { ...state, loading: true };
 

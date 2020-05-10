@@ -4,12 +4,22 @@ import Sidebar from '../../Routes/SideBar/Sidebar';
 import Casechart from './Casechart';
 import DistrictCases from './DistrictCases';
 import './Overview.scss';
+// import '../../Routes/SideBar/Sidebar.scss';
+const Overview = () => {
+	const humburgerHandler = () => {
+		const profileDOM = document.querySelector('.sidebar-main');
+		profileDOM.classList.add('sidebar-main-slide');
+	};
 
-const Cases = () => {
 	return (
 		<div>
 			<Sidebar />
 			<div className="overview-main">
+				<div className="humburger_menu">
+					<i className="material-icons" onClick={humburgerHandler}>
+						dehaze
+					</i>
+				</div>
 				<div className="chart-main">
 					<div className="chart-container">
 						<h3>
@@ -35,4 +45,4 @@ const Cases = () => {
 	);
 };
 
-export default Cases;
+export default Overview;

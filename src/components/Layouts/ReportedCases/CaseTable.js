@@ -13,7 +13,7 @@ const CaseTable = ({ caseHeaders, data, toggleModal }) => {
 					{data.map((row) => {
 						// console.log(row);
 						return (
-							<tr className="table-detail-row" onClick={() => toggleModal(data)}>
+							<tr className="table-detail-row" onClick={() => toggleModal(row)}>
 								<td>{row.reporter.name}</td>
 								<td>{row.location.name}</td>
 								<td>{row.type}</td>

@@ -19,8 +19,13 @@ class Cases extends Component {
 	}
 
 	toggleModal = (data) => {
-		// return <Redirect to="/case-details" />;
+		// console.log('logged data', data);
 		return this.props.history.push('/case-details', { data });
+	};
+
+	humburgerHandler = () => {
+		const profileDOM = document.querySelector('.sidebar-main');
+		profileDOM.classList.add('sidebar-main-slide');
 	};
 
 	render() {
@@ -36,6 +41,11 @@ class Cases extends Component {
 			<div>
 				<Sidebar />
 				<div className="cases-main">
+					<div className="humburger_menu">
+						<i className="material-icons" onClick={this.humburgerHandler}>
+							dehaze
+						</i>
+					</div>
 					<div className="search-container">
 						<i className="material-icons">search</i>
 						<input placeholder="Search Violations" />

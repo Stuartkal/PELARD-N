@@ -28,6 +28,31 @@
 	}
 }
 
+.humburger_menu {
+	position: sticky;
+	top: 5px;
+	height: 50px;
+	width: 50px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--primaryColor1);
+	border-radius: 100px;
+	transition: all 0.3s linear;
+	box-sizing: border-box;
+	box-shadow: 0px 5px 10px rgba(0, 0, 0, .095);
+	visibility: hidden;
+
+	i {
+		color: var(--mainWhite);
+	}
+
+	&:hover {
+		cursor: pointer;
+	}
+}
+
 .case-header {
 	display: flex;
 	justify-content: space-between;
@@ -123,5 +148,49 @@
 		border-radius: 5px;
 		margin-right: 2rem;
 		margin-bottom: 1rem;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.case-details-main {
+		margin: auto;
+		width: 100%;
+		h2 {
+			font-weight: bold;
+			color: var(--mainGrey);
+			font-family: var(--mainFont);
+		}
+	}
+	.humburger_menu {
+		visibility: visible;
+	}
+	.separator {
+		margin-top: 0.5rem;
+		margin-bottom: 0.5rem;
+	}
+	.label {
+		margin-right: 2rem;
+		h3 {
+			font-size: 15px;
+		}
+	}
+
+	.detail {
+		width: 70%;
+
+		h4 {
+			font-size: 12px;
+		}
+	}
+	.case-date {
+		h3 {
+			font-size: 12px;
+		}
+	}
+	.gallery {
+		img {
+			width: 100px;
+			height: 100px;
+		}
 	}
 }
