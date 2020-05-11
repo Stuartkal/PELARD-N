@@ -189,7 +189,20 @@
 	.chart-main-row {
 		h2 {
 			font-size: 15px;
+			color: rgba(0, 0, 0, 0.7);
 		}
+	}
+
+	.chart-container {
+		width: 100%;
+	}
+
+	.row {
+		width: 100%;
+	}
+
+	.card {
+		width: 100%;
 	}
 
 	.humburger_menu {

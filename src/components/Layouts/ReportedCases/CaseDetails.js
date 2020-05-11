@@ -9,7 +9,7 @@ const CaseDetails = (props) => {
 		const { data } = props.location.state;
 		setcaseDetails(data);
 	}, []);
-	console.log('CaseDetails violations', caseDetails.reporter);
+	console.log('CaseDetails violations', caseDetails);
 
 	// const data = props.location.state.data;
 	const convertDate = (date) => new Date(date).toDateString();
