@@ -81,46 +81,52 @@
 
 // export default connect(matchStateToProps, mapDispatchToProps)(Signin);
 
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-import './LandingPage.scss';
+import "./LandingPage.scss";
 const Signin = (props) => {
-	// const [ userName, setUserName ] = useState('stuwie');
-	// 	const [ password, setPassword ] = useState('pass0123');
-	// console.log(userName, password);
-	return (
-		<div>
-			{!props.state.openModal && (
-				<div className="login-main">
-					<h1>PELARD</h1>
-					<h2>Login</h2>
-					<div className="input-form">
-						<input
-							type="text"
-							placeholder="userName"
-							value={props.state.userName}
-							onChange={(e) => props.handleChange('userName', e)}
-						/>
-						<input
-							type="password"
-							placeholder="Password"
-							value={props.state.password}
-							onChange={(e) => props.handleChange('password', e)}
-						/>
-					</div>
-					<div className="login-links">
-						<a href="#">Forgot password?</a>
-					</div>
-					<button type="submit" onClick={props.loginHandler}>
-						Login
-					</button>
-					<div className="signup-btn" onClick={props.close}>
-						<button type="Submit">Sign Up here</button>
-					</div>
-				</div>
-			)}
-		</div>
-	);
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+
+  const { loginHandler } = props;
+
+  const login = () => {
+    loginHandler({ userName, password });
+  };
+
+  return (
+    <div>
+      {!props.state.openModal && (
+        <div className="login-main">
+          <h1>PELARD</h1>
+          <h2>Login</h2>
+          <div className="input-form">
+            <input
+              type="text"
+              placeholder="userName"
+              value={userName}
+              onChange={(e) => setUserName(e.target.value)}
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <div className="login-links">
+            <a href="#">Forgot password?</a>
+          </div>
+          <button type="submit" onClick={login}>
+            Login
+          </button>
+          <div className="signup-btn" onClick={props.close}>
+            <button type="Submit">Sign Up here</button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default Signin;

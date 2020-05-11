@@ -1,7 +1,8 @@
-import Axios from 'axios';
+import Axios from "axios";
 
-const baseUrl = 'https://pelard-n.herokuapp.com';
-const secret = '2cfb9e9a-34a9-4843-961f-6e2639c41856-b10445eb-a0e8-4fa2-b636-015b2f1e3660';
+const baseUrl = "https://pelard-n.herokuapp.com";
+const secret =
+  "2cfb9e9a-34a9-4843-961f-6e2639c41856-b10445eb-a0e8-4fa2-b636-015b2f1e3660";
 
 // export const userRegistration = async (data) => {
 // 	try {
@@ -16,65 +17,69 @@ const secret = '2cfb9e9a-34a9-4843-961f-6e2639c41856-b10445eb-a0e8-4fa2-b636-015
 
 //GET TOKEN REQUEST
 const getToken = async ({ secret, _id }) => {
-	const response = await fetch(`${baseUrl}/token/generate`, {
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/json'
-		},
-		body: JSON.stringify({ secret, _id })
-	});
+  const response = await fetch(`${baseUrl}/token/generate`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ secret, _id }),
+  });
 
-	const json = await response.json();
-	console.log(json);
-	return json.data.token;
+  const json = await response.json();
+  console.log(json);
+  return json.data.token;
 };
 
 //USER REGISTRATION REQUEST
 export const userRegistration = async (data) => {
-	console.log(data);
-	try {
-		const token = await getToken({ secret });
-		const response = await fetch(`${baseUrl}/user/register`, {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-				Authorization: token
-			},
-			body: JSON.stringify(data)
-		});
+  console.log(data);
+  try {
+    const token = await getToken({ secret });
+    const response = await fetch(`${baseUrl}/user/register`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: token,
+      },
+      body: JSON.stringify(data),
+    });
 
-		const json = await response.json();
-		console.log('Registration');
-		console.log(json);
-	} catch (errors) {
-		console.log(errors);
-	}
+    const json = await response.json();
+    console.log("Registration");
+    console.log(json);
+  } catch (errors) {
+    console.log(errors);
+  }
 };
 
 //USER LOGIN REQUEST
 export const userLogin = async (userName, password) => {
-	const token = await getToken({ secret });
-	const response = await fetch(`${baseUrl}/user/login`, {
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/json',
-			Authorization: token
-		},
-		body: JSON.stringify({ userName, password })
-	});
-	const json = await response.json();
-	return json;
+  const token = await getToken({ secret });
+  const response = await fetch(`${baseUrl}/user/login`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: token,
+    },
+    body: JSON.stringify({ userName, password }),
+  });
+  const json = await response.json();
+  return json;
 };
 
 //GET ALL REPORTED CASES REQUEST
 export const getReportedCases = async ({ userId }) => {
-	const token = await getToken({ secret, _id: userId });
-	const response = await fetch(`${baseUrl}/violations`, {
-		method: 'GET',
-		headers: {
-			Authorization: token
-		}
-	});
-	const json = await response.json();
-	return json;
+  const token = await getToken({ secret, _id: userId });
+  const response = await fetch(`${baseUrl}/violations`, {
+    method: "GET",
+    headers: {
+      Authorization: token,
+    },
+  });
+  const json = await response.json();
+  console.log("cases");
+  console.log(json);
+  return json;
 };
+
+getReportedCases({ userId: "5eaadf0de00f08123a897f38" });
