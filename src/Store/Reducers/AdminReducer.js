@@ -1,7 +1,7 @@
 import { AdminActions } from '../Actions';
 
 const initialState = {
-	userProfile: {},
+	error: '',
 	token: '',
 	loading: false,
 	allCases: [],
@@ -20,16 +20,17 @@ export default function(state = initialState, { type, payload, error }) {
 		case AdminActions.USER_REGISTRATION_SUCCESS:
 			return { ...state, loading: false };
 		case AdminActions.USER_REGISTRATION_FAIL:
-			return { ...state, loading: false };
+			return { ...state, loading: false, error: error.message };
 
 		//UESR LOGIN
 		case AdminActions.USER_LOGIN_ACTION:
 			return { ...state, loading: true };
 		case AdminActions.USER_LOGIN_SUCCESS:
-			localStorage.setItem('adminToken', payload.data.token);
-			return { ...state, loading: true, token: payload.data.token };
+			console.log('token', payload);
+			localStorage.setItem('adminToken', payload.token);
+			return { ...state, loading: true, token: payload.token };
 		case AdminActions.USER_LOGIN_FAIL:
-			return { ...state, loading: true };
+			return { ...state, loading: true, error: error.message };
 
 		//GET ALL REPORTED CASES
 		case AdminActions.ALL_REPORTED_CASES_ACTION:

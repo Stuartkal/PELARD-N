@@ -1,5 +1,5 @@
 :root {
-	--primaryColor1: #003399;
+	--primaryColor1: #17448a;
 	--primaryColor2: #ffcb02;
 	--mainWhite: #fff;
 	--mainGrey: rgba(0, 0, 0, 0.5);
@@ -88,13 +88,13 @@
 
 .case-row {
 	display: flex;
-	justify-content: space-between;
+	flex-direction: column;
 	width: 100%;
 }
 
 .case-details {
 	display: flex;
-	width: 70%;
+	width: 100%;
 	padding-left: 10px;
 	flex-direction: column;
 }
@@ -115,6 +115,15 @@
 	}
 }
 
+.label-data {
+	width: 15%;
+
+	h3 {
+		color: var(--primaryColor1);
+		font-weight: 400;
+	}
+}
+
 .detail {
 	width: 70%;
 
@@ -124,12 +133,24 @@
 	}
 }
 
-.case-date {
-	display: flex;
-	justify-content: flex-end;
-	width: 30%;
+.data {
+	h4 {
+		text-align: center;
+	}
+}
 
-	h3 {
+.detail-row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 98%;
+	padding: 10px;
+	margin-bottom: 1rem;
+	background-color: rgba(0, 0, 0, .095);
+}
+
+.case-date {
+	h4 {
 		color: rgba(0, 0, 0, 0.6);
 		font-weight: 500;
 	}
@@ -174,13 +195,21 @@
 			font-size: 15px;
 		}
 	}
-
+	.label-data {
+		h3 {
+			font-size: 15px;
+		}
+	}
 	.detail {
 		width: 70%;
 
 		h4 {
 			font-size: 12px;
 		}
+	}
+	.detail-row {
+		flex-direction: column;
+		width: 80%;
 	}
 	.case-date {
 		h3 {

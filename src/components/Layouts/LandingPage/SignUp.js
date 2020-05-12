@@ -56,6 +56,7 @@ const SignUp = (props) => {
 					{props.loading && <p>Registered Successfully</p>}
 					<a href="/">Back to login</a>
 				</div>
+				<h3 style={{ color: 'red' }}>{props.error}</h3>
 			</div>
 		</div>
 	);

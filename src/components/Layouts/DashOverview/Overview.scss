@@ -1,5 +1,5 @@
 :root {
-	--primaryColor1: #003399;
+	--primaryColor1: #17448a;
 	--primaryColor2: #ffcb02;
 	--mainWhite: #fff;
 	--mainGrey: rgba(0, 0, 0, 0.5);
@@ -93,11 +93,12 @@
 }
 
 .row {
-	width: 85%;
+	width: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: left;
 	margin-top: 1rem;
+	margin-left: 5rem;
 	flex-wrap: wrap;
 }
 

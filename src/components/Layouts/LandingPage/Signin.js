@@ -38,6 +38,7 @@ const Signin = (props) => {
 						Sign Up here
 					</button>
 				</div>
+				<h3 style={{ color: 'red' }}>{props.error}</h3>
 			</div>
 		</div>
 	);

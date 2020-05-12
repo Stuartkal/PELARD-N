@@ -54,6 +54,7 @@ export const userRegistration = async (data) => {
 //USER LOGIN REQUEST
 export const userLogin = async (userName, password) => {
 	const token = await getToken({ secret });
+	console.log('fetch token', token);
 	const response = await fetch(`${baseUrl}/user/login`, {
 		method: 'POST',
 		headers: {
@@ -63,7 +64,11 @@ export const userLogin = async (userName, password) => {
 		body: JSON.stringify({ userName, password })
 	});
 	const json = await response.json();
-	return json;
+	// json.payload.data.token = token;
+	const userdata_token = Object.assign({}, json, { token: token });
+
+	console.log('token', userdata_token);
+	return userdata_token;
 };
 
 //GET ALL REPORTED CASES REQUEST

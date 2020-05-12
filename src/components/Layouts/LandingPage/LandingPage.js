@@ -14,8 +14,7 @@ class LandingPage extends Component {
 		userName: '',
 		password: '',
 		phoneNumber: '',
-		email: '',
-		token: ''
+		email: ''
 	};
 
 	componentDidMount() {
@@ -46,7 +45,7 @@ class LandingPage extends Component {
 	};
 
 	render() {
-		const { loading } = this.props;
+		const { loading, error } = this.props;
 
 		return (
 			<div>
@@ -55,6 +54,7 @@ class LandingPage extends Component {
 					onChange={(key, value) => this.handleChange(key, value)}
 					{...this.state}
 					loading={loading}
+					error={error}
 				/>
 
 				<SignUp
@@ -62,6 +62,7 @@ class LandingPage extends Component {
 					onChange={(key, value) => this.handleChange(key, value)}
 					{...this.state}
 					loading={loading}
+					error={error}
 				/>
 			</div>
 		);
@@ -69,7 +70,8 @@ class LandingPage extends Component {
 }
 
 const mapStateToProps = (state) => ({
-	loading: state.adminReducer.loading
+	loading: state.adminReducer.loading,
+	error: state.adminReducer.error
 	// authenticated: state.adminReducer.token,
 	// token: state.adminReducer.token
 });

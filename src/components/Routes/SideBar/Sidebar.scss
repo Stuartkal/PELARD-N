@@ -1,5 +1,5 @@
 :root {
-	--primaryColor1: #003399;
+	--primaryColor1: #17448a;
 	--primaryColor2: #ffcb02;
 	--mainWhite: #fff;
 	--mainGrey: rgba(0, 0, 0, 0.1);
@@ -48,6 +48,7 @@
 		color: var(--mainWhite);
 		background-color: var(--primaryColor1);
 		font-size: 15px;
+		border-radius: 5px;
 		&:hover {
 			background-color: var(--mainGrey);
 			cursor: pointer;
