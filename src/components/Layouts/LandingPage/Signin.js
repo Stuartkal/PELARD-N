@@ -11,7 +11,7 @@ const Signin = (props) => {
 	return (
 		<div>
 			<div className="login-main">
-				<h1>PELARD</h1>
+				<h1>PELARD-N</h1>
 				<h2>Login</h2>
 				<div className="input-form">
 					<input
@@ -28,7 +28,7 @@ const Signin = (props) => {
 					/>
 				</div>
 				<div className="login-links">
-					<a href="#">Forgot password?</a>
+					Forgot Password? <a href="#">click here</a>
 				</div>
 				<button type="submit" onClick={props.loginHandler}>
 					{props.loading ? <CircularProgress style={{ color: '#fff' }} /> : 'Login'}

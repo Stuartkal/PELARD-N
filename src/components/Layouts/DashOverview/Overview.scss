@@ -1,5 +1,5 @@
 :root {
-	--primaryColor1: #17448a;
+	--primaryColor1: #01579b;
 	--primaryColor2: #ffcb02;
 	--mainWhite: #fff;
 	--mainGrey: rgba(0, 0, 0, 0.5);
@@ -30,7 +30,7 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	background-color: var(--primaryColor1);
+	background-color: #6055a5;
 	border-radius: 100px;
 	transition: all 0.3s linear;
 	box-sizing: border-box;
@@ -147,7 +147,7 @@
 	box-shadow: 0px 5px 10px rgba(0, 0, 0, .095);
 
 	h1 {
-		font-weight: 600;
+		font-weight: 400;
 		color: var(--primaryColor1);
 		margin-top: 2rem;
 		font-family: var(--mainFont);
@@ -166,13 +166,13 @@
 	button {
 		transform: translateY(100%);
 		width: 100px;
-		height: 30px;
+		height: 40px;
 		border: 0px;
 		color: var(--mainWhite);
-		background-color: var(--primaryColor1);
+		background-color: #6055a5;
 		font-size: 15px;
 		&:hover {
-			background-color: var(--mainGrey);
+			background-color: #2bbbad;
 			cursor: pointer;
 		}
 	}

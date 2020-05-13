@@ -6,8 +6,8 @@ const SignUp = (props) => {
 	return (
 		<div>
 			<div className="signUp-main">
-				<h1>PELARD</h1>
-				<h2>Login</h2>
+				<h1>PELARD-N</h1>
+				<h2>Sign Up</h2>
 				<div className="input-form">
 					<input
 						type="text"
@@ -45,9 +45,6 @@ const SignUp = (props) => {
 						value={props.phoneNumber}
 						onChange={(e) => props.onChange('phoneNumber', e)}
 					/>
-				</div>
-				<div className="login-links">
-					<a href="#">Forgot password?</a>
 				</div>
 				<button type="submit" onClick={props.registerHandler}>
 					{props.loading ? <CircularProgress style={{ color: '#fff' }} /> : 'SignUp'}

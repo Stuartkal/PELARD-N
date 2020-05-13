@@ -14,7 +14,7 @@ const Sidebar = withRouter((props) => {
 
 	return (
 		<div className="sidebar-main">
-			<h1>PELARD</h1>
+			<h1>PELARD-N</h1>
 			<div className="avatar">
 				<i class="material-icons">person</i>
 			</div>
