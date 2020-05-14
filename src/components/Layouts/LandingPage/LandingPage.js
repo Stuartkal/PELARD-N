@@ -3,6 +3,7 @@ import { ActionCreators } from '../../../Store/ActionCreators';
 import { connect } from 'react-redux';
 import SignIn from './Signin';
 import SignUp from './SignUp';
+import ForgotPassword from './ForgotPassword';
 
 class LandingPage extends Component {
 	constructor(props) {

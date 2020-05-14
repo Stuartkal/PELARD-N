@@ -59,3 +59,19 @@ export const allReportedCasesFail = (error) => ({
 	type: AdminActions.ALL_REPORTED_CASES_FAIL,
 	error
 });
+
+//RESET PASSWORD
+export const resetPasswordAction = (identifier) => ({
+	type: AdminActions.RESET_PASSWORD_ACTION,
+	identifier
+});
+
+export const resetPasswordSuccess = (payload) => ({
+	type: AdminActions.RESET_PASSWORD_ACTION,
+	payload
+});
+
+export const resetPasswordFail = (error) => ({
+	type: AdminActions.RESET_PASSWORD_ACTION,
+	error
+});

@@ -28,7 +28,7 @@ const Signin = (props) => {
 					/>
 				</div>
 				<div className="login-links">
-					Forgot Password? <a href="#">click here</a>
+					Forgot Password? <a href="/reset-password">click here</a>
 				</div>
 				<button type="submit" onClick={props.loginHandler}>
 					{props.loading ? <CircularProgress style={{ color: '#fff' }} /> : 'Login'}

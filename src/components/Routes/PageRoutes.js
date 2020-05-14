@@ -5,6 +5,7 @@ import LandingPage from '../Layouts/LandingPage/LandingPage';
 import SignIn from '../Layouts/LandingPage/Signin';
 import SignUp from '../Layouts/LandingPage/SignUp';
 import Sidebar from './SideBar/Sidebar';
+import ForgotPassword from '../Layouts/LandingPage/ForgotPassword';
 
 export default [
 	{
@@ -20,6 +21,12 @@ export default [
 	{
 		path: '/signin',
 		component: SignIn,
+		exact: true
+	},
+	,
+	{
+		path: '/reset-password',
+		component: ForgotPassword,
 		exact: true
 	},
 	{

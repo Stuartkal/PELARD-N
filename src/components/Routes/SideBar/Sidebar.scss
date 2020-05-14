@@ -30,13 +30,13 @@
 		font-family: var(--mainFont);
 	}
 	h2 {
-		color: var(--primaryColor1);
+		color: var(--mainGrey);
 		margin-top: 20px;
 		font-weight: 500;
 		font-family: var(--mainFont);
 	}
 	h3 {
-		color: var(--primaryColor1);
+		color: var(--mainGrey);
 		font-weight: 300;
 		font-family: var(--mainFont);
 	}
@@ -57,18 +57,21 @@
 }
 
 .avatar {
-	height: 100px;
-	width: 100px;
-	background-color: var(--mainGrey);
+	height: 70px;
+	width: 70px;
+	background-color: #6055a5;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	border-radius: 100px;
 	margin-top: 2rem;
 
-	i {
+	p {
+		font-size: 70px;
 		color: var(--mainWhite);
-		font-size: 90px;
+		// text-align: center;
+		align-self: center;
+		margin-bottom: 1rem;
 	}
 }
 
@@ -85,16 +88,16 @@
 }
 
 .dash-link-main:hover {
-	background-color: var(--mainBgGrey);
+	background-color: #6055a5;
 	cursor: pointer;
 }
 
 .dash-link-main:hover .dash-link1 {
 	i {
-		color: var(--primaryColor1);
+		color: var(--mainWhite);
 	}
 	a {
-		color: var(--primaryColor1);
+		color: var(--mainWhite);
 		cursor: pointer;
 	}
 }
@@ -124,7 +127,7 @@
 	display: flex;
 	align-items: center;
 	flex-direction: column;
-	transform: translateY(150%);
+	transform: translateY(270%);
 	width: 100%;
 }
 

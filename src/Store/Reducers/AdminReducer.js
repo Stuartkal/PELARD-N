@@ -1,6 +1,8 @@
 import { AdminActions } from '../Actions';
 
 const initialState = {
+	userName: '',
+	email: '',
 	error: '',
 	token: '',
 	loading: false,
@@ -28,7 +30,13 @@ export default function(state = initialState, { type, payload, error }) {
 		case AdminActions.USER_LOGIN_SUCCESS:
 			console.log('token', payload);
 			localStorage.setItem('adminToken', payload.token);
-			return { ...state, loading: true, token: payload.token };
+			return {
+				...state,
+				loading: true,
+				token: payload.token,
+				userName: payload.data.user.userName,
+				email: payload.data.user.email
+			};
 		case AdminActions.USER_LOGIN_FAIL:
 			return { ...state, loading: true, error: error.message };
 
@@ -39,6 +47,14 @@ export default function(state = initialState, { type, payload, error }) {
 			return { ...state, loading: false, allCases: payload.data.violations };
 		case AdminActions.ALL_REPORTED_CASES_FAIL:
 			return { ...state, loading: false };
+
+		//RESET PASSWORD
+		case AdminActions.RESET_PASSWORD_ACTION:
+			return { ...state, loading: true };
+		case AdminActions.RESET_PASSWORD_SUCCESS:
+			return { ...state, loading: false };
+		case AdminActions.RESET_PASSWORD_FAIL:
+			return { ...state, loading: false, error: error.message };
 		default:
 			return state;
 	}

@@ -83,3 +83,17 @@ export const getReportedCases = async ({ userId }) => {
 	const json = await response.json();
 	return json;
 };
+
+//RESET PASSWORD EMAIL POST REQUEST
+export const resetAdminPassword = async (identifier) => {
+	const token = await getToken({ secret });
+	const response = await fetch(`${baseUrl}/email/request-password-reset`, {
+		method: 'POST',
+		headers: {
+			Authorization: token
+		},
+		body: JSON.stringify({ identifier })
+	});
+	const json = await response.json();
+	return json;
+};
