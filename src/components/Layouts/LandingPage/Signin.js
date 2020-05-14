@@ -1,8 +1,9 @@
 import React from 'react';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import { withRouter } from 'react-router-dom';
 
 import './LandingPage.scss';
-const Signin = (props) => {
+const Signin = withRouter((props) => {
 	const showSignUpModal = () => {
 		const profileDOM = document.querySelector('.signUp-main');
 		profileDOM.classList.add('show-signUp-main');
@@ -28,20 +29,23 @@ const Signin = (props) => {
 					/>
 				</div>
 				<div className="login-links">
-					Forgot Password? <a href="/reset-password">click here</a>
+					Forgot Password?{' '}
+					<a href="#" onClick={() => props.history.push('/reset-password')}>
+						click here
+					</a>
 				</div>
 				<button type="submit" onClick={props.loginHandler}>
-					{props.loading ? <CircularProgress style={{ color: '#fff' }} /> : 'Login'}
+					{props.loading ? <CircularProgress style={{ color: 'red', fontSize: '100px' }} /> : 'Login'}
 				</button>
-				<div className="signup-btn" onClick={props.close}>
-					<button type="Submit" onClick={showSignUpModal}>
+				<div className="signup-link" onClick={props.close}>
+					<a href="#" onClick={showSignUpModal}>
 						Sign Up here
-					</button>
+					</a>
 				</div>
 				<h3 style={{ color: 'red' }}>{props.error}</h3>
 			</div>
 		</div>
 	);
-};
+});
 
 export default Signin;
