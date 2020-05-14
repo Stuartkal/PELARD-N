@@ -47,13 +47,16 @@ const SignUp = (props) => {
 					/>
 				</div>
 				<button type="submit" onClick={props.registerHandler}>
-					{props.loading ? <CircularProgress style={{ color: '#fff' }} /> : 'SignUp'}
+					{props.loading ? (
+						<CircularProgress style={{ color: '#fff', width: '30px', height: '30px' }} />
+					) : (
+						'SignUp'
+					)}
 				</button>
 				<div className="success-label">
-					{props.loading && <p>Registered Successfully</p>}
+					{props.loading && <p>Registering</p>}
 					<a href="/">Back to login</a>
 				</div>
-				<h3 style={{ color: 'red' }}>{props.error}</h3>
 			</div>
 		</div>
 	);
