@@ -55,6 +55,7 @@ const CaseDetails = (props) => {
 						<div className="case-date">
 							<h4>{convertDate(caseDetails.dateTime)}</h4>
 						</div>
+						{/* <i className="material-icons">share</i> */}
 						<Pdf targetRef={ref} filename="case-report.pdf" x={0.5} y={0.5} options={options}>
 							{({ toPdf }) => (
 								<i className="material-icons" onClick={toPdf}>

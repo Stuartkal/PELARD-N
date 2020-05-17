@@ -54,7 +54,7 @@ export default function(state = initialState, { type, payload, error }) {
 		case AdminActions.RESET_PASSWORD_SUCCESS:
 			return { ...state, loading: false };
 		case AdminActions.RESET_PASSWORD_FAIL:
-			return { ...state, loading: false, error: error.message };
+			return { ...state, loading: false, error: payload.data.message };
 		default:
 			return state;
 	}

@@ -56,19 +56,19 @@ function* reportedCases({ userId, callback }) {
 }
 
 //PASSWORD RESET
-function* watchAllRequestPassword() {
+function* watchResetPassword() {
 	yield takeLatest(AdminActions.RESET_PASSWORD_ACTION, passwordReset);
 }
 
-function* passwordReset({ identifier }) {
+function* passwordReset({ identifier, callback }) {
 	try {
-		const response = yield call(() => AdminRequest.resetAdminPassword(identifier));
+		const response = yield call(() => AdminRequest.resetAdminPassword({ identifier, callback }));
 		console.log('password reset response', response);
+		callback(response);
 		yield put(ActionCreators.resetPasswordSuccess(response));
-		// callback(response);
 	} catch (error) {
 		yield put(ActionCreators.resetPasswordFail(error));
 	}
 }
 
-export { watchUserRegistration, watchUserLogin, watchAllReportedCases, watchAllRequestPassword };
+export { watchUserRegistration, watchUserLogin, watchAllReportedCases, watchResetPassword };

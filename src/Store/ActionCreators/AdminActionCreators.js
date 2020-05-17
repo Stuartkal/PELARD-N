@@ -61,9 +61,10 @@ export const allReportedCasesFail = (error) => ({
 });
 
 //RESET PASSWORD
-export const resetPasswordAction = (identifier) => ({
+export const resetPasswordAction = (identifier, callback) => ({
 	type: AdminActions.RESET_PASSWORD_ACTION,
-	identifier
+	identifier,
+	callback
 });
 
 export const resetPasswordSuccess = (payload) => ({
