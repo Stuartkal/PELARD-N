@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react';
 import Sidebar from '../../Routes/SideBar/Sidebar';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import Button from '@material-ui/core/Button';
-import Pdf from 'react-to-pdf';
-import { Document, Page } from 'react-pdf';
+import axios from 'axios';
+import { saveAs } from 'file-saver';
+
 import './CaseDetails.scss';
+
 const CaseDetails = (props) => {
 	// console.log('violations', props);
 	const [ caseDetails, setcaseDetails ] = useState({});
@@ -15,24 +17,29 @@ const CaseDetails = (props) => {
 	}, []);
 	console.log('CaseDetails violations', caseDetails);
 
-	// const data = props.location.state.data;
+	//Convert Date
 	const convertDate = (date) => new Date(date).toDateString();
 
-	const ref = React.createRef();
-
+	//Toggle Humburger Menu
 	const humburgerHandler = () => {
 		const profileDOM = document.querySelector('.sidebar-main');
 		profileDOM.classList.add('sidebar-main-slide');
 	};
+	//Create And Download PDFs
+	const createAndDownLoadPdf = () => {
+		axios
+			.post('/create-pdf', caseDetails)
+			.then(() => axios.get('fetch-pdf', { responseType: 'blob' }))
+			.then((res) => {
+				const pdfBlob = new Blob([ res.data ], { type: 'application/pdf' });
 
-	const options = {
-		orientation: 'potrait'
-		// height: '100vh'
+				saveAs(pdfBlob, 'caseReport.pdf');
+			});
 	};
 
 	const involved = caseDetails.involved;
 	const responses = caseDetails.authorityResponse;
-	const otherInfo = caseDetails.otherInfo;
+	// const otherInfo = caseDetails.otherInfo;
 	const imageUrls = caseDetails.injuries;
 
 	return (
@@ -56,18 +63,14 @@ const CaseDetails = (props) => {
 							<h4>{convertDate(caseDetails.dateTime)}</h4>
 						</div>
 						{/* <i className="material-icons">share</i> */}
-						<Pdf targetRef={ref} filename="case-report.pdf" x={0.5} y={0.5} options={options}>
-							{({ toPdf }) => (
-								<i className="material-icons" onClick={toPdf}>
-									file_download
-								</i>
-							)}
-						</Pdf>
+						<i className="material-icons" onClick={createAndDownLoadPdf}>
+							file_download
+						</i>
 					</div>
 				</div>
 				<div className="separator" />
 				<div className="case-row">
-					<div className="case-main" ref={ref}>
+					<div className="case-main">
 						<div className="case-details">
 							<div className="case-details-row">
 								<div className="label">
@@ -114,7 +117,7 @@ const CaseDetails = (props) => {
 									<h3>Violance Description: </h3>
 								</div>
 								<div className="detail">
-									<h4>{caseDetails.description}</h4>
+									<h4>{caseDetails && caseDetails.description}</h4>
 								</div>
 							</div>
 							<div className="case-details-row">

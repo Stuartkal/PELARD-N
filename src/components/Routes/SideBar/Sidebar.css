@@ -1,5 +1,5 @@
 :root {
-  --primaryColor1: #003399;
+  --primaryColor1: #01579b;
   --primaryColor2: #ffcb02;
   --mainWhite: #fff;
   --mainGrey: rgba(0, 0, 0, 0.1);
@@ -24,6 +24,8 @@
       -ms-flex-align: center;
           align-items: center;
   position: fixed;
+  -webkit-transform: all 0.3s linear;
+          transform: all 0.3s linear;
   top: 0;
   z-index: 1;
   -webkit-box-sizing: border-box;
@@ -33,45 +35,46 @@
 }
 
 .sidebar-main h1 {
-  font-weight: 600;
+  font-weight: 400;
   color: var(--primaryColor1);
   margin-top: 2rem;
   font-family: var(--mainFont);
 }
 
 .sidebar-main h2 {
-  color: var(--primaryColor1);
+  color: var(--mainGrey);
   margin-top: 20px;
   font-weight: 500;
   font-family: var(--mainFont);
 }
 
 .sidebar-main h3 {
-  color: var(--primaryColor1);
+  color: var(--mainGrey);
   font-weight: 300;
   font-family: var(--mainFont);
 }
 
 .sidebar-main button {
-  position: relative;
-  top: 200px;
-  width: 200px;
-  height: 50px;
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+  width: 100px;
+  height: 30px;
   border: 0px;
   color: var(--mainWhite);
-  background-color: var(--primaryColor1);
-  font-size: 20px;
+  background-color: #6055a5;
+  font-size: 15px;
+  border-radius: 5px;
 }
 
 .sidebar-main button:hover {
-  background-color: var(--mainGrey);
+  background-color: #2bbbad;
   cursor: pointer;
 }
 
 .avatar {
-  height: 100px;
-  width: 100px;
-  background-color: var(--mainGrey);
+  height: 70px;
+  width: 70px;
+  background-color: #6055a5;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -85,9 +88,13 @@
   margin-top: 2rem;
 }
 
-.avatar i {
+.avatar p {
+  font-size: 70px;
   color: var(--mainWhite);
-  font-size: 90px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  margin-bottom: 1rem;
 }
 
 .dash-links {
@@ -110,15 +117,16 @@
 }
 
 .dash-link-main:hover {
-  background-color: var(--mainBgGrey);
+  background-color: #6055a5;
+  cursor: pointer;
 }
 
 .dash-link-main:hover .dash-link1 i {
-  color: var(--primaryColor1);
+  color: var(--mainWhite);
 }
 
 .dash-link-main:hover .dash-link1 a {
-  color: var(--primaryColor1);
+  color: var(--mainWhite);
   cursor: pointer;
 }
 
@@ -144,5 +152,91 @@
   font-size: 20px;
   color: var(--mainGrey);
   text-decoration: none;
+}
+
+.patner_logos {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-transform: translateY(270%);
+          transform: translateY(270%);
+  width: 100%;
+}
+
+.logos_ {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 85%;
+}
+
+.logos_ img {
+  width: 50px;
+  height: 50px;
+}
+
+.separator_sidebar {
+  height: 1px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  -webkit-transform: translateY(900%);
+          transform: translateY(900%);
+}
+
+.sidebar-main_slide {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+
+@media screen and (max-width: 768px) {
+  .sidebar-main {
+    -webkit-transform: translateX(-300%);
+            transform: translateX(-300%);
+  }
+  .avatar {
+    height: 70px;
+    width: 70px;
+    margin-top: 1rem;
+  }
+  .avatar i {
+    font-size: 60px;
+  }
+  .dash-link1 {
+    width: 95%;
+    margin-bottom: 0.1rem;
+  }
+  .dash-link1 i {
+    font-size: 30px;
+    margin-right: 0.5rem;
+  }
+  .dash-link1 a {
+    font-size: 13px;
+  }
+  .patner_logos {
+    -webkit-transform: translateY(260%);
+            transform: translateY(260%);
+  }
+  .logos_ {
+    width: 75%;
+  }
+  .logos_ img {
+    width: 30px;
+    height: 30px;
+  }
 }
 /*# sourceMappingURL=Sidebar.css.map */
