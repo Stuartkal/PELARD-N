@@ -28,8 +28,8 @@ const CaseDetails = (props) => {
 	//Create And Download PDFs
 	const createAndDownLoadPdf = () => {
 		axios
-			.post('/create-pdf', caseDetails)
-			.then(() => axios.get('fetch-pdf', { responseType: 'blob' }))
+			.post('https://pelard-pdf-downloader.herokuapp.com/create-pdf', caseDetails)
+			.then(() => axios.get('https://pelard-pdf-downloader.herokuapp.com/fetch-pdf', { responseType: 'blob' }))
 			.then((res) => {
 				const pdfBlob = new Blob([ res.data ], { type: 'application/pdf' });
 

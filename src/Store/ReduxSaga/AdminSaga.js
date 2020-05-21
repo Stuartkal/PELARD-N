@@ -27,7 +27,7 @@ function* watchUserLogin() {
 function* loginUser({ userName, password, callback }) {
 	try {
 		const response = yield call(() => AdminRequest.userLogin(userName, password));
-		console.log('setting token', response);
+		// console.log('setting token', response);
 		yield put(ActionCreators.userLoginSuccess(response));
 		if (response.data.user._id) {
 			yield sessionStorage.setItem('adminId', response.data.user._id);
@@ -63,7 +63,7 @@ function* watchResetPassword() {
 function* passwordReset({ identifier, callback }) {
 	try {
 		const response = yield call(() => AdminRequest.resetAdminPassword({ identifier, callback }));
-		console.log('password reset response', response);
+		// console.log('password reset response', response);
 		callback(response);
 		yield put(ActionCreators.resetPasswordSuccess(response));
 	} catch (error) {

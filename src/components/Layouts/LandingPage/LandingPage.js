@@ -19,7 +19,7 @@ class LandingPage extends Component {
 	};
 
 	componentDidMount() {
-		console.log(this.props);
+		// console.log(this.props);
 	}
 
 	handleChange = (key, event) => this.setState({ [key]: event.target.value });
