@@ -43,13 +43,14 @@ function* watchAllReportedCases() {
 	yield takeLatest(AdminActions.ALL_REPORTED_CASES_ACTION, reportedCases);
 }
 
-function* reportedCases({ userId, callback }) {
+function* reportedCases({ callback }) {
 	try {
-		const response = yield call(() => AdminRequest.getReportedCases({ userId, callback }));
+		const response = yield call(() => AdminRequest.getReportedCases({}));
+		// console.log('my response', response);
 		if (response.statusCode === 401) {
-			callback();
 			yield put(ActionCreators.allReportedCasesFail(response));
 		} else yield put(ActionCreators.allReportedCasesSuccess(response));
+		callback(response.data.violations);
 	} catch (error) {
 		yield put(ActionCreators.allReportedCasesFail(error));
 	}

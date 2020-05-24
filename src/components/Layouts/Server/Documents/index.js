@@ -137,6 +137,12 @@ module.exports = (caseDetails) => {
             font-family: 'Lato', sans-serif;
         }
 
+        .image p {
+            color: #01579b;
+            font-weight: 400;
+            font-family: 'Lato', sans-serif;
+        }
+
     </style>
     </head>
     <body>
@@ -221,6 +227,7 @@ module.exports = (caseDetails) => {
                                             src=${url.link}
                                             alt="ingury image"    
                                         />
+                                        <p>${url.link}</p>
                                     </div>
                                 `
 							)}

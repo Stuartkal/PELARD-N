@@ -72,8 +72,8 @@ export const userLogin = async (userName, password) => {
 };
 
 //GET ALL REPORTED CASES REQUEST
-export const getReportedCases = async ({ userId }) => {
-	const token = await getToken({ secret, _id: userId });
+export const getReportedCases = async ({}) => {
+	const token = await getToken({ secret });
 	const response = await fetch(`${baseUrl}/violations`, {
 		method: 'GET',
 		headers: {
@@ -81,6 +81,7 @@ export const getReportedCases = async ({ userId }) => {
 		}
 	});
 	const json = await response.json();
+
 	return json;
 };
 

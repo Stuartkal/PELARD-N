@@ -61,6 +61,7 @@
 		color: var(--mainGrey);
 		font-size: 30px;
 		margin-right: 1rem;
+		cursor: pointer;
 	}
 
 	input {
@@ -68,6 +69,7 @@
 		height: 50px;
 		border: none;
 		font-size: 20px;
+		outline: none;
 	}
 }
 

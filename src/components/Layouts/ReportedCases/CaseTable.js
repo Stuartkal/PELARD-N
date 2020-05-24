@@ -10,7 +10,8 @@ const CaseTable = ({ caseHeaders, data, toggleModal }) => {
 			<table>
 				<tbody>
 					<tr className="table-header-row">{caseHeaders.map((caseHeader) => <td>{caseHeader.label}</td>)}</tr>
-					{data.map((row) => {
+					{data.map((row_) => {
+						const row = row_.item ? row_.item : row_;
 						// console.log(row);
 						return (
 							<tr className="table-detail-row" onClick={() => toggleModal(row)}>
