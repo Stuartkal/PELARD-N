@@ -4,6 +4,7 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import Button from '@material-ui/core/Button';
 import axios from 'axios';
 import { saveAs } from 'file-saver';
+import { AdminRequest } from '../../../Store/API';
 
 import './CaseDetails.scss';
 
@@ -27,6 +28,8 @@ const CaseDetails = (props) => {
 	};
 	//Create And Download PDFs
 	const createAndDownLoadPdf = () => {
+		// AdminRequest.generateToken();
+		// axios.get('https://pelard-n.herokuapp.com/documents/5eab1b8bbc20a1364d395e34/generate-pdf');
 		axios
 			.post('https://pelard-pdf-downloader.herokuapp.com/create-pdf', caseDetails)
 			.then(() => axios.get('https://pelard-pdf-downloader.herokuapp.com/fetch-pdf', { responseType: 'blob' }))
@@ -181,6 +184,19 @@ const CaseDetails = (props) => {
 								</div>
 								<div className="gallery">
 									{caseDetails.injuries && imageUrls.map((url) => <img src={url.link} alt="image" />)}
+								</div>
+							</div>
+							<div className="case-details-row">
+								<div className="label">
+									<h3>Injury Links: </h3>
+								</div>
+								<div className="detail">
+									{caseDetails.injuries &&
+										imageUrls.map((url) => (
+											<div className="detail">
+												<h4>{url.link}</h4>
+											</div>
+										))}
 								</div>
 							</div>
 						</div>

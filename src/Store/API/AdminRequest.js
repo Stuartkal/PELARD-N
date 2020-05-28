@@ -25,7 +25,7 @@ const getToken = async ({ secret, _id }) => {
 	});
 
 	const json = await response.json();
-	console.log(json);
+	// console.log(json);
 	return json.data.token;
 };
 
@@ -98,4 +98,17 @@ export const resetAdminPassword = async ({ identifier }) => {
 	});
 	const json = await response.json();
 	return json;
+};
+
+//Generate pdf
+
+export const generateToken = async () => {
+	const token = await getToken({ secret });
+	const response = await fetch(`${baseUrl}/documents/5eb6ec28901a4c00041a399e/generate-pdf`, {
+		method: 'GET',
+		headers: {
+			Authorization: token
+		}
+	});
+	return response;
 };
