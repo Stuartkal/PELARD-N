@@ -50,7 +50,7 @@ class Cases extends Component {
 				threshold: 0.5,
 				distance: 10,
 				// useExtendedSearch: false,
-				keys: [ 'location.name', 'reporter.name', 'type' ]
+				keys: [ 'location.name', 'reporter.name', 'type', 'reportedDateAndTime' ]
 			};
 
 			const fuse = new Fuse(filter, options);

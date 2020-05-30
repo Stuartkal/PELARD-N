@@ -27,17 +27,13 @@ const CaseDetails = (props) => {
 		profileDOM.classList.add('sidebar-main-slide');
 	};
 	//Create And Download PDFs
-	const createAndDownLoadPdf = () => {
-		// AdminRequest.generateToken();
-		// axios.get('https://pelard-n.herokuapp.com/documents/5eab1b8bbc20a1364d395e34/generate-pdf');
-		axios
-			.post('https://pelard-pdf-downloader.herokuapp.com/create-pdf', caseDetails)
-			.then(() => axios.get('https://pelard-pdf-downloader.herokuapp.com/fetch-pdf', { responseType: 'blob' }))
-			.then((res) => {
-				const pdfBlob = new Blob([ res.data ], { type: 'application/pdf' });
-
-				saveAs(pdfBlob, 'caseReport.pdf');
-			});
+	const createAndDownLoadPdf = (id) => {
+		const profId = caseDetails._id;
+		console.log('my id', profId);
+		return (
+			window.open(`https://pelard-n.herokuapp.com/documents/${profId}/generate-pdf`, '_blank') ||
+			(window.location.href = `https://pelard-n.herokuapp.com/documents/${profId}/generate-pdf`)
+		);
 	};
 
 	const involved = caseDetails.involved;
@@ -63,7 +59,7 @@ const CaseDetails = (props) => {
 
 					<div className="case-icons">
 						<div className="case-date">
-							<h4>{convertDate(caseDetails.dateTime)}</h4>
+							<h4>{convertDate(caseDetails.reportedDateAndTime)}</h4>
 						</div>
 						{/* <i className="material-icons">share</i> */}
 						<i className="material-icons" onClick={createAndDownLoadPdf}>
@@ -75,14 +71,14 @@ const CaseDetails = (props) => {
 				<div className="case-row">
 					<div className="case-main">
 						<div className="case-details">
-							<div className="case-details-row">
+							{/* <div className="case-details-row">
 								<div className="label">
 									<h3>Case: </h3>
 								</div>
 								<div className="detail">
 									<h4>{caseDetails && caseDetails._id}</h4>
 								</div>
-							</div>
+							</div> */}
 							<div className="case-details-row">
 								<div className="label">
 									<h3>Reporter's Name: </h3>
@@ -188,13 +184,15 @@ const CaseDetails = (props) => {
 							</div>
 							<div className="case-details-row">
 								<div className="label">
-									<h3>Injury Links: </h3>
+									<h3>Injury Image Links: </h3>
 								</div>
 								<div className="detail">
 									{caseDetails.injuries &&
 										imageUrls.map((url) => (
 											<div className="detail">
-												<h4>{url.link}</h4>
+												<a href={url.link} target="blank">
+													{url.link}
+												</a>
 											</div>
 										))}
 								</div>
